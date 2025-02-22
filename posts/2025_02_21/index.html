@@ -1,0 +1,91 @@
+<!doctype html><html lang=en-US><head><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" href=https://blog.thibaud.io/images/favicon.png><title>Progress! | rheneross</title>
+<meta name=title content="Progress!"><meta name=description content="Hey everyone,
+I hope you are doing great :)
+This week I&rsquo;ve made a lot of progress on my game: the first level blockout is nearly complete, and all the features are implemented already.
+I will do a small family and friends playtest next week, and report back with the findings!
+In the meantime, let&rsquo;s dive a little bit into my Trenchbroom/Godot/FuncGodot setup.
+First, let me tell you, I really enjoy the workflow!
+Here&rsquo;s a quick video showing it in action:
+
+ 
+
+
+    
+    Your browser does not support the video tag.  
+
+
+"><meta name=author content><meta name=keywords content="gamedev,"><meta property="og:title" content="Progress!"><meta property="og:description" content="Hey everyone,
+I hope you are doing great :)
+This week I&rsquo;ve made a lot of progress on my game: the first level blockout is nearly complete, and all the features are implemented already.
+I will do a small family and friends playtest next week, and report back with the findings!
+In the meantime, let&rsquo;s dive a little bit into my Trenchbroom/Godot/FuncGodot setup.
+First, let me tell you, I really enjoy the workflow!
+Here&rsquo;s a quick video showing it in action:
+
+ 
+
+
+    
+    Your browser does not support the video tag.  
+
+
+"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.thibaud.io/posts/2025_02_21/"><meta property="og:image" content="https://blog.thibaud.io/images/social_card_bg_hu14184728856770534190.webp"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-21T00:00:00+00:00"><meta property="article:modified_time" content="2025-02-21T00:00:00+00:00"><meta property="og:site_name" content="rheneross"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.thibaud.io/images/social_card_bg_hu14184728856770534190.webp"><meta name=twitter:title content="Progress!"><meta name=twitter:description content="Hey everyone,
+I hope you are doing great :)
+This week I&rsquo;ve made a lot of progress on my game: the first level blockout is nearly complete, and all the features are implemented already.
+I will do a small family and friends playtest next week, and report back with the findings!
+In the meantime, let&rsquo;s dive a little bit into my Trenchbroom/Godot/FuncGodot setup.
+First, let me tell you, I really enjoy the workflow!
+Here&rsquo;s a quick video showing it in action:
+
+ 
+
+
+    
+    Your browser does not support the video tag.  
+
+
+"><meta itemprop=name content="Progress!"><meta itemprop=description content="Hey everyone,
+I hope you are doing great :)
+This week I&rsquo;ve made a lot of progress on my game: the first level blockout is nearly complete, and all the features are implemented already.
+I will do a small family and friends playtest next week, and report back with the findings!
+In the meantime, let&rsquo;s dive a little bit into my Trenchbroom/Godot/FuncGodot setup.
+First, let me tell you, I really enjoy the workflow!
+Here&rsquo;s a quick video showing it in action:
+
+ 
+
+
+    
+    Your browser does not support the video tag.  
+
+
+"><meta itemprop=datePublished content="2025-02-21T00:00:00+00:00"><meta itemprop=dateModified content="2025-02-21T00:00:00+00:00"><meta itemprop=wordCount content="391"><meta itemprop=image content="https://blog.thibaud.io/images/social_card_bg_hu14184728856770534190.webp"><meta itemprop=keywords content="gamedev,"><meta name=referrer content="no-referrer-when-downgrade"><link href=/original.min.css rel=stylesheet><link href=/syntax.min.css rel=stylesheet></head><body><header><a class=skip-link href=#main-content>Skip to main content</a><nav><a href=/>home</a>
+<a href=/posts/>posts</a></nav></header><main id=main-content><h1>Progress!</h1><content><p>Hey everyone,<br>I hope you are doing great :)</p><p>This week I&rsquo;ve made a lot of progress on my game: the first level blockout is nearly complete, and all the features are implemented already.<br>I will do a small family and friends playtest next week, and report back with the findings!</p><p>In the meantime, let&rsquo;s dive a little bit into my Trenchbroom/Godot/FuncGodot setup.</p><p>First, let me tell you, I really enjoy the workflow!<br>Here&rsquo;s a quick video showing it in action:<br><video width=100% controls autoplay>
+<source src=/videos/trenchbroom-godot-workflow.mp4 type=video/mp4>Your browser does not support the video tag.</video></p><p>At the moment though, it&rsquo;s a bit tedious to add new 3D models.<br>Here&rsquo;s what I have to do to make a model available in Trenchbroom:</p><ol><li>Create the model in blender, with the materials</li><li>Export the model as an glb to Godot</li><li>Create a Godot scene, with the model in it, rotate it to face the correct direction</li><li>Create an entity resource using the model</li><li>Export the entities library</li><li>Reload the entities in trenchbroom</li></ol><p>Next week, I&rsquo;ll create a Godot tool script to automatically generate props entities for each 3D model in a folder.</p><p>For reference, here&rsquo;s how I&rsquo;ve structured my project:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>GodotGame/
+</span></span><span style=display:flex><span>├───raw_assets/                           <span style=color:#75715e># .blend / .krita / .aseprite ...</span>
+</span></span><span style=display:flex><span>├───src/                                  <span style=color:#75715e># The actual godot folder</span>
+</span></span><span style=display:flex><span>│   ├───addons/
+</span></span><span style=display:flex><span>│   │   └───func_godot/
+</span></span><span style=display:flex><span>│   ├───entities/                         <span style=color:#75715e># One folder per entity</span>
+</span></span><span style=display:flex><span>│   │   ├───player/  
+</span></span><span style=display:flex><span>|   │   │   ├───player.gd                 <span style=color:#75715e># Godot script</span>
+</span></span><span style=display:flex><span>|   │   │   └───player.tscn               <span style=color:#75715e># Godot scene file</span>
+</span></span><span style=display:flex><span>│   │   ├───door_entity/  
+</span></span><span style=display:flex><span>|   │   |   ├───door_entity.gd            <span style=color:#75715e># Godot script</span>
+</span></span><span style=display:flex><span>|   │   |   ├───door_entity.tres          <span style=color:#75715e># FuncGodotFGDBaseClass Resource</span>
+</span></span><span style=display:flex><span>|   │   |   └───door_entity.tscn          <span style=color:#75715e># Godot scene file</span>
+</span></span><span style=display:flex><span>│   │   └───fdg.tres                      <span style=color:#75715e># FuncGodotFGDFile Resource</span>
+</span></span><span style=display:flex><span>|	├───maps/                             <span style=color:#75715e># Trenchbroom &amp; Godot Scene map files</span>
+</span></span><span style=display:flex><span>│   │   ├───level1/  
+</span></span><span style=display:flex><span>|   │   │   ├───level1.tscn               <span style=color:#75715e># Godot scene file</span>
+</span></span><span style=display:flex><span>|   │   │   ├───level1_map_settings.tres  <span style=color:#75715e># Optional FuncGodotMapSettings Resource</span>
+</span></span><span style=display:flex><span>|   │   │   └───level1.map                <span style=color:#75715e># Trenchbroom map file</span>
+</span></span><span style=display:flex><span>│   │   └───func_godot_map_settings.tres  <span style=color:#75715e># Global FuncGodotMapSettings Resource</span>
+</span></span><span style=display:flex><span>│   ├───scripts/                          <span style=color:#75715e># Non-entity scripts, like tools, managers, UI, ...</span>
+</span></span><span style=display:flex><span>│   ├───models/                           <span style=color:#75715e># Exported game models in .glb format</span>
+</span></span><span style=display:flex><span>|   │   └───props/   <span style=color:#75715e># &lt;-- Folder from which all props entities will be generated</span>
+</span></span><span style=display:flex><span>│   ├───textures/                         <span style=color:#75715e># Textures</span>
+</span></span><span style=display:flex><span>│   └───config.tres                       <span style=color:#75715e># TrenchBroomGameConfig Resource</span>
+</span></span><span style=display:flex><span>└───trenchbroom/                          <span style=color:#75715e># FuncGodot&#39;s &#34;Map Editor Game Path&#34;</span>
+</span></span><span style=display:flex><span>    └───models/                           <span style=color:#75715e># FuncGodot exported models, added to .gitignore</span></span></span></code></pre></div><p>This setup is still evolving, so let me know if you have any thoughts or suggestions!
+Have a great week & see you next time!</p></content><p><a class=blog-tags href=/tags/gamedev/>#gamedev</a></p></main><footer><small><a href=https://blog.thibaud.io/index.xml>RSS</a> | <a href=https://bsky.app/profile/rheneross.com>bluesky</a> | Made with <a href=https://github.com/clente/hugo-bearcub>Bear Cub</a></small></footer></body></html>
